@@ -10,8 +10,9 @@ fun test() {
     if (q != null) q.length      // you have to check to dereference
     val i: Int? = q?.length      // null
     val j: Int = q?.length ?: 0  // 0
-}
 
+
+/*
 fun todoTask7(client: Client?, message: String?, mailer: Mailer): Nothing = TODO(
     """
         Task 7.
@@ -21,16 +22,20 @@ fun todoTask7(client: Client?, message: String?, mailer: Mailer): Nothing = TODO
     documentation = doc7(),
     references = { JavaCode7().sendMessageToClient(client, message, mailer) }
 )
+*/
 
-fun sendMessageToClient(
-        client: Client?, message: String?, mailer: Mailer
-) {
-    todoTask7(client, message, mailer)
-}
-
+    class PersonalInfo (val email: String?)
 class Client (val personalInfo: PersonalInfo?)
-class PersonalInfo (val email: String?)
 
 interface Mailer {
     fun sendMessage(email: String, message: String)
 }
+
+    fun sendMessageToClient(
+            client: Client?, message: String?, mailer: Mailer
+    ) {
+        if ( client && message) {
+            sendMessageToClient()
+        }
+    }
+    }
