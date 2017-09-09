@@ -10,32 +10,26 @@ fun test() {
     if (q != null) q.length      // you have to check to dereference
     val i: Int? = q?.length      // null
     val j: Int = q?.length ?: 0  // 0
+}
+
+fun sendMessageToClient(
+        client: Client?, message: String?, mailer: Mailer
+) {
+//    todoTask7(client, message, mailer)
+    val email = client?.personalInfo?.email
+
+    val email2 = client?.personalInfo?.email
+
+    if (email != null && message != null) {
+        mailer.sendMessage(email, message)
+    }
+}
 
 
-/*
-fun todoTask7(client: Client?, message: String?, mailer: Mailer): Nothing = TODO(
-    """
-        Task 7.
-        Rewrite JavaCode7.sendMessageToClient in Kotlin, using only one 'if' expression.
-        Declarations of Client, PersonalInfo and Mailer are given below.
-    """,
-    documentation = doc7(),
-    references = { JavaCode7().sendMessageToClient(client, message, mailer) }
-)
-*/
-
-    class PersonalInfo (val email: String?)
+class PersonalInfo (val email: String?)
 class Client (val personalInfo: PersonalInfo?)
 
 interface Mailer {
     fun sendMessage(email: String, message: String)
 }
 
-    fun sendMessageToClient(
-            client: Client?, message: String?, mailer: Mailer
-    ) {
-        if ( client && message) {
-            sendMessageToClient()
-        }
-    }
-    }

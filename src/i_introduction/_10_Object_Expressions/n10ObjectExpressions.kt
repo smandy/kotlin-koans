@@ -16,8 +16,10 @@ fun todoTask10(): Nothing = TODO(
     documentation = doc10()
 )
 
-fun task10(): List<Int> {
+fun task10() : ArrayList<Int> {
     val arrayList = arrayListOf(1, 5, 2)
-    Collections.sort(arrayList, todoTask10())
+    Collections.sort(arrayList, object : Comparator<Int> {
+        override fun compare(x : Int , y : Int ) = y - x
+    } )
     return arrayList
 }
